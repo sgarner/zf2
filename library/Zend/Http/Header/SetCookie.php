@@ -363,7 +363,8 @@ class SetCookie implements MultipleHeaderInterface
         }
 
         if (!is_int($expires) || $expires < 0) {
-            throw new Exception\InvalidArgumentException('Invalid expires time specified');
+            //throw new Exception\InvalidArgumentException('Invalid expires time specified');
+            $expires = null;
         }
 
         $this->expires = $expires;

@@ -914,7 +914,7 @@ class Client implements Stdlib\DispatchableInterface
                 try {
                     $this->addCookie($setCookies);
                 }
-                catch (Header\Exception\InvalidArgumentException $e) {
+                catch (Exception\InvalidArgumentException $e) {
                     // ignore
                 }
             }
