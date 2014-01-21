@@ -911,7 +911,12 @@ class Client implements Stdlib\DispatchableInterface
             // Get the cookies from response (if any)
             $setCookies = $response->getCookie();
             if (!empty($setCookies)) {
-                $this->addCookie($setCookies);
+                try {
+                    $this->addCookie($setCookies);
+                }
+                catch (Header\Exception\InvalidArgumentException $e) {
+                    // ignore
+                }
             }
 
             // If we got redirected, look for the Location header
